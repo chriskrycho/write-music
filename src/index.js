@@ -212,17 +212,21 @@ function color(count) {
   return 'hsl(' + [value, '93%', '70%', 0.5].join(', ') + ')'
 }
 
+/** @returns {Array<number>} */
 function hues() {
-  /* eslint-disable no-multi-assign */
-  /** @type {Array<number>} */
-  const colors = []
-  colors[0] = colors[1] = colors[2] = 60
-  colors[3] = colors[4] = 300
-  colors[5] = colors[6] = 0
-  colors[7] = colors[8] = colors[9] = colors[10] = colors[11] = colors[12] = 120
-  /* eslint-enable no-multi-assign */
-  colors.push(180)
-  return colors
+  return Array.from({length: 120}, (_, i) => {
+    if (i < 3) return 30
+    if (i < 6) return 60
+    if (i < 9) return 90
+    if (i < 12) return 120
+    if (i < 18) return 150
+    if (i < 24) return 180
+    if (i < 30) return 210
+    if (i < 40) return 240
+    if (i < 50) return 270
+    if (i < 60) return 300
+    return 330
+  })
 }
 
 /**
